@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="../layout.xhtml">
+
+	<ui:define name="content">
+		<div class="ui-g-6">
+		<h:form id="viewDeveloperForm">
+			<p:panel cellpadding = "10" cellspacing = "1" header="Developer " >
+				<h:panelGrid columns="2">
+					<p:outputLabel  for=" firstname" style="center">   Name : </p:outputLabel>
+					<p:inputText id="firstname"  value="#{developerView.developer.firstname} #{developerView.developer.lastname}" disabled="true" />
+
+					<p:outputLabel  for="email" style="center" >   Email: </p:outputLabel>
+					<p:inputText type="email" id="email" value="#{developerView.developer.email}" disabled="true" />
+
+					<p:outputLabel  for="skill" style="center">   Skills :</p:outputLabel>
+					<p:outputLabel  value="#{developerView.developer.skills}" />
+
+					<p:selectOneMenu id="skill" value="#{developerView.developer.skills}" >
+   	<f:selectItem itemValue="Spring Boot" itemLabel="Spring Boot" />
+   	<f:selectItem itemValue="AWS" itemLabel="AWS" />
+   	<f:selectItem itemValue=".net" itemLabel=".net" />
+   	<f:selectItem itemValue="Spring" itemLabel="Spring" />
+   	<f:selectItem itemValue="Spark" itemLabel="Spark" />
+</p:selectOneMenu>
+					<h:commandButton value="Add Skill" action="#{developerView.updateDeveloperSkills}" />
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+		</div>
+	</ui:define>
+
+</ui:composition>
+</html>
